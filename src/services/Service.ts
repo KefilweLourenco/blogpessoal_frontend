@@ -33,4 +33,9 @@ export const deletar = async (url: string, header: object) => {
   await api.delete(url, header);
 };
 
+export const buscarPorId = async (url: string, setDados: Function, header: object) => {
+  const resposta = await api.get(url, header);
+  setDados(resposta.data);
+};
+
 export default api;

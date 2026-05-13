@@ -1,4 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import DeletarPostagem from "./components/postagens/deletarpostagem/DeletarPostagem";
+import FormPostagem from "./components/postagens/formpostagem/FormPostagem";
+import ListaPostagens from "./components/postagens/listapostagens/ListaPostagens";
 import DeletarTema from "./components/tema/deletartema/DeletarTema";
 import FormTema from "./components/tema/formtema/FormTema";
 import ListaTemas from "./components/tema/listatemas/ListaTemas";
@@ -24,6 +27,10 @@ function App() {
             <Route path="/cadastrartema" element={<FormTema />} />
             <Route path="/editartema/:id" element={<FormTema />} />
             <Route path="/deletartema/:id" element={<DeletarTema />} />
+            <Route path="/postagens" element={<ListaPostagens />} />
+            <Route path="/cadastrarpostagem" element={<FormPostagem />} />
+            <Route path="/editarpostagem/:id" element={<FormPostagem />} />
+            <Route path="/deletarpostagem/:id" element={<DeletarPostagem />} />
           </Routes>
         </div>
         <Footer />

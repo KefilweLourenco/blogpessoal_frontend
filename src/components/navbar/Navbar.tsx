@@ -23,6 +23,9 @@ function Navbar() {
           <Link to="/home" className="hover:underline">
             Home
           </Link>
+          <Link to="/postagens" className="hover:underline">
+            Postagens
+          </Link>
           <Link to="/temas" className="hover:underline">
             Temas
           </Link>
