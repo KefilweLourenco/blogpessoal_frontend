@@ -1,14 +1,13 @@
-# Blog Pessoal - Front-end
+# Blog Pessoal Front-end
 
-Front-end do Projeto Blog Pessoal desenvolvido durante a formação **Full Stack JavaScript da Generation Brasil**.
+Interface web do projeto Blog Pessoal, desenvolvida com React durante a formação Full Stack JavaScript da Generation Brasil.
 
-O projeto ainda está em desenvolvimento e segue as etapas do Cookbook de React da Generation, com foco em criação de interfaces, rotas, autenticação e integração com API back-end.
+Este repositório concentra o front-end da aplicação e consome a API do projeto Blog Pessoal já publicada em:
 
-## Propósito
+- Backend: [blogpessoal_nest](https://github.com/KefilweLourenco/blogpessoal_nest)
+- API em produção: [https://blogpessoal-o04c.onrender.com](https://blogpessoal-o04c.onrender.com)
 
-Construir a interface do Blog Pessoal, permitindo a navegação entre páginas, cadastro de usuários, login e comunicação com a API do back-end.
-
-## Tecnologias utilizadas
+## Tecnologias
 
 - React
 - TypeScript
@@ -19,35 +18,38 @@ Construir a interface do Blog Pessoal, permitindo a navegação entre páginas, 
 - Context API
 - React Spinners
 - Phosphor Icons
+- Reactjs Popup
 
-## Funcionalidades em desenvolvimento
+## Estrutura atual
 
-- Página Home
-- Navbar e Footer
-- Rotas da aplicação
-- Página de cadastro
-- Página de login
-- Models com TypeScript
-- Service com Axios
-- AuthContext para autenticação
-- Integração com API back-end
+- autenticação com cadastro e login
+- rotas com React Router
+- CRUD de temas
+- CRUD de postagens
+- integração com API REST do Blog Pessoal
 
-## Back-end
+## Documentação das implementações
 
-Repositório do back-end:
+O histórico resumido das etapas implementadas do Cookbook está na pasta [Docs](C:/Users/kefil/OneDrive/Desktop/react/blogpessoal/Docs/README.md).
 
-```txt
-https://github.com/KefilweLourenco/blogpessoal_nest
+Documentos disponíveis:
 
-API publicada no Render:
+- [Visão geral das implementações](C:/Users/kefil/OneDrive/Desktop/react/blogpessoal/Docs/README.md)
+- [Etapas 05 a 08](C:/Users/kefil/OneDrive/Desktop/react/blogpessoal/Docs/implementacao-05-08.md)
+- [Etapas 09 a 12](C:/Users/kefil/OneDrive/Desktop/react/blogpessoal/Docs/implementacao-09-12.md)
+- [Etapas 13 a 19](C:/Users/kefil/OneDrive/Desktop/react/blogpessoal/Docs/implementacao-13-19.md)
+- [Etapas 20 a 25](C:/Users/kefil/OneDrive/Desktop/react/blogpessoal/Docs/implementacao-20-25.md)
+- [Etapas 26 a 31](C:/Users/kefil/OneDrive/Desktop/react/blogpessoal/Docs/implementacao-26-31.md)
 
-https://blogpessoal-o04c.onrender.com
-Como executar
+## Como executar
+
+```bash
 git clone https://github.com/KefilweLourenco/blogpessoal_frontend.git
-cd blogpessoal_frontend
+cd blogpessoal
 npm install
 npm run dev
 ```
-## Autor
 
-Desenvolvido por Kefilwe Lourenço durante a formação Full Stack JavaScript da Generation Brasil.
+## Autoria
+
+Projeto desenvolvido por Kefilwe Lourenço durante a formação Full Stack JavaScript da Generation Brasil.
