@@ -1,11 +1,16 @@
 # Blog Pessoal Front-end
 
-Interface web do projeto Blog Pessoal, desenvolvida com React durante a formação Full Stack JavaScript da Generation Brasil.
+✨ Interface web do projeto Blog Pessoal, desenvolvida com React durante a formação Full Stack JavaScript da Generation Brasil.
 
-Este repositório concentra o front-end da aplicação e consome a API do projeto Blog Pessoal já publicada em:
+Este repositório concentra o front-end da aplicação e consome a API do projeto Blog Pessoal.
 
 - Backend: [blogpessoal_nest](https://github.com/KefilweLourenco/blogpessoal_nest)
-- API em produção: [https://blogpessoal-o04c.onrender.com](https://blogpessoal-o04c.onrender.com)
+
+## Status do projeto
+
+🚧 O front-end ainda está em construção e, por enquanto, não foi publicado visualmente em produção.
+
+Atualmente, a interface é utilizada em ambiente local para desenvolvimento, testes e validação das etapas do Cookbook React.
 
 ## Tecnologias
 
@@ -52,4 +57,4 @@ npm run dev
 
 ## Autoria
 
-Projeto desenvolvido por Kefilwe Lourenço durante a formação Full Stack JavaScript da Generation Brasil.
+💜 Projeto desenvolvido por Kefilwe Lourenço durante a formação Full Stack JavaScript da Generation Brasil.
