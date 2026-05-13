@@ -1,14 +1,14 @@
 import { type ChangeEvent, type FormEvent, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { HashLoader } from "react-spinners";
+import { ClipLoader } from "react-spinners";
 import type Usuario from "../../models/Usuario";
-import { cadastrar } from "../../services/Service";
+import { cadastrarUsuario } from "../../services/Service";
 
 function Cadastro() {
   const navigate = useNavigate();
 
-  const [confirmarSenha, setConfirmarSenha] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [confirmarSenha, setConfirmarSenha] = useState<string>("");
   const [usuario, setUsuario] = useState<Usuario>({
     id: 0,
     nome: "",
@@ -18,7 +18,7 @@ function Cadastro() {
   });
 
   useEffect(() => {
-    if (usuario.id !== 0 && usuario.id !== undefined) {
+    if (usuario.id !== 0) {
       retornar();
     }
   }, [usuario]);
@@ -45,17 +45,18 @@ function Cadastro() {
       setIsLoading(true);
 
       try {
-        await cadastrar(`/usuarios/cadastrar`, usuario, setUsuario);
-      } catch {
-        alert("Erro ao cadastrar o usuário!");
+        await cadastrarUsuario("/usuarios/cadastrar", usuario, setUsuario);
+        alert("Usuário cadastrado com sucesso");
+      } catch (error) {
+        alert("Erro ao cadastrar o Usuário");
       }
-
-      setIsLoading(false);
     } else {
       alert("Dados do usuário inconsistentes! Verifique as informações do cadastro.");
       setUsuario({ ...usuario, senha: "" });
       setConfirmarSenha("");
     }
+
+    setIsLoading(false);
   }
 
   return (
@@ -142,7 +143,7 @@ function Cadastro() {
               type="submit"
               className="flex w-1/2 items-center justify-center rounded bg-lime-400 py-2 font-bold text-indigo-900 hover:bg-lime-300"
             >
-              {isLoading ? <HashLoader color="#312e81" size={24} /> : <span>Cadastrar</span>}
+              {isLoading ? <ClipLoader color="#ffffff" size={24} /> : <span>Cadastrar</span>}
             </button>
           </div>
         </form>

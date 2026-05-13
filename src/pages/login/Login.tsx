@@ -1,6 +1,6 @@
 import { type ChangeEvent, type FormEvent, useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { HashLoader } from "react-spinners";
+import { Link, useNavigate } from "react-router-dom";
+import { ClipLoader } from "react-spinners";
 import { AuthContext } from "../../contexts/AuthContext";
 import type UsuarioLogin from "../../models/UsuarioLogin";
 
@@ -9,14 +9,7 @@ function Login() {
 
   const { usuario, handleLogin, isLoading } = useContext(AuthContext);
 
-  const [usuarioLogin, setUsuarioLogin] = useState<UsuarioLogin>({
-    id: 0,
-    nome: "",
-    usuario: "",
-    foto: "",
-    token: "",
-    senha: "",
-  });
+  const [usuarioLogin, setUsuarioLogin] = useState<UsuarioLogin>({} as UsuarioLogin);
 
   useEffect(() => {
     if (usuario.token !== "") {
@@ -31,7 +24,7 @@ function Login() {
     });
   }
 
-  async function logar(e: FormEvent<HTMLFormElement>) {
+  async function login(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     await handleLogin(usuarioLogin);
   }
@@ -41,7 +34,7 @@ function Login() {
       <div className="hidden bg-[url('https://i.imgur.com/fyfri1v.png')] bg-cover bg-center lg:block"></div>
 
       <div className="flex items-center justify-center bg-indigo-900 py-10">
-        <form className="flex w-2/3 flex-col gap-4 text-white" onSubmit={logar}>
+        <form className="flex w-2/3 flex-col gap-4 text-white" onSubmit={login}>
           <h2 className="text-center text-4xl font-bold">Entrar</h2>
 
           <div className="flex flex-col gap-2">
@@ -74,8 +67,17 @@ function Login() {
             type="submit"
             className="flex items-center justify-center rounded bg-lime-400 py-2 font-bold text-indigo-900 hover:bg-lime-300"
           >
-            {isLoading ? <HashLoader color="#312e81" size={24} /> : <span>Entrar</span>}
+            {isLoading ? <ClipLoader color="#ffffff" size={24} /> : <span>Entrar</span>}
           </button>
+
+          <hr className="border-slate-500" />
+
+          <p className="text-center">
+            Não tem uma conta?{" "}
+            <Link to="/cadastro" className="font-bold hover:underline">
+              Cadastre-se
+            </Link>
+          </p>
         </form>
       </div>
     </div>

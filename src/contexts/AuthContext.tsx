@@ -13,33 +13,42 @@ interface AuthProviderProps {
   children: ReactNode;
 }
 
-const usuarioLoginInicial: UsuarioLogin = {
-  id: 0,
-  nome: "",
-  usuario: "",
-  foto: "",
-  token: "",
-  senha: "",
-};
-
 export const AuthContext = createContext({} as AuthContextProps);
 
 export function AuthProvider({ children }: AuthProviderProps) {
-  const [usuario, setUsuario] = useState<UsuarioLogin>(usuarioLoginInicial);
+  const [usuario, setUsuario] = useState<UsuarioLogin>({
+    id: 0,
+    nome: "",
+    usuario: "",
+    foto: "",
+    token: "",
+    senha: "",
+  });
+
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  async function handleLogin(usuarioLogin: UsuarioLogin) {
+  async function handleLogin(userLogin: UsuarioLogin) {
     setIsLoading(true);
 
     try {
-      await login("/usuarios/logar", usuarioLogin, setUsuario);
-    } finally {
-      setIsLoading(false);
+      await login("/usuarios/logar", userLogin, setUsuario);
+      alert("Usuário logado com sucesso");
+    } catch (error) {
+      alert("Os dados do Usuário estão inconsistentes!");
     }
+
+    setIsLoading(false);
   }
 
   function handleLogout() {
-    setUsuario(usuarioLoginInicial);
+    setUsuario({
+      id: 0,
+      nome: "",
+      usuario: "",
+      foto: "",
+      token: "",
+      senha: "",
+    });
   }
 
   return (
