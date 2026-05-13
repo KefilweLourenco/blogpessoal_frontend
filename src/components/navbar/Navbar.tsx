@@ -23,6 +23,12 @@ function Navbar() {
           <Link to="/home" className="hover:underline">
             Home
           </Link>
+          <Link to="/temas" className="hover:underline">
+            Temas
+          </Link>
+          <Link to="/cadastrartema" className="hover:underline">
+            Cadastrar tema
+          </Link>
           <Link to="/cadastro" className="hover:underline">
             Cadastrar
           </Link>
