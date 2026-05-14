@@ -1,6 +1,6 @@
 # Blog Pessoal Front-end
 
-✨ Interface web do projeto Blog Pessoal, desenvolvida com React durante a formação Full Stack JavaScript da Generation Brasil.
+Interface web do projeto Blog Pessoal, desenvolvida com React durante a formação Full Stack JavaScript da Generation Brasil.
 
 Este repositório concentra o front-end da aplicação e consome a API do projeto Blog Pessoal.
 
@@ -69,4 +69,4 @@ VITE_API_URL=https://seu_link_aqui
 
 ## Autoria
 
-💜 Projeto desenvolvido por Kefilwe Lourenço durante a formação Full Stack JavaScript da Generation Brasil.
+Projeto desenvolvido por Kefilwe Lourenço durante a formação Full Stack JavaScript da Generation Brasil.
