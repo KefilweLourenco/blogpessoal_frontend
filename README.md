@@ -1,6 +1,6 @@
 # Blog Pessoal Front-end
 
-Interface web do projeto Blog Pessoal, desenvolvida com React durante a formação Full Stack JavaScript da Generation Brasil.
+✨ Interface web do projeto Blog Pessoal, desenvolvida com React durante a formação Full Stack JavaScript da Generation Brasil.
 
 Este repositório concentra o front-end da aplicação e consome a API do projeto Blog Pessoal.
 
@@ -8,9 +8,9 @@ Este repositório concentra o front-end da aplicação e consome a API do projet
 
 ## Status do projeto
 
-🚧 O front-end ainda está em construção e, por enquanto, não foi publicado visualmente em produção.
+🚧 O front-end segue em construção e evolução conforme as etapas do Cookbook React.
 
-Atualmente, a interface é utilizada em ambiente local para desenvolvimento, testes e validação das etapas do Cookbook React.
+No momento, o projeto já conta com autenticação, CRUD de temas, CRUD de postagens, página de perfil e preparação para deploy na Vercel.
 
 ## Tecnologias
 
@@ -22,6 +22,7 @@ Atualmente, a interface é utilizada em ambiente local para desenvolvimento, tes
 - Axios
 - Context API
 - React Spinners
+- React Toastify
 - Phosphor Icons
 - Reactjs Popup
 
@@ -29,9 +30,11 @@ Atualmente, a interface é utilizada em ambiente local para desenvolvimento, tes
 
 - autenticação com cadastro e login
 - rotas com React Router
+- página de perfil
 - CRUD de temas
 - CRUD de postagens
 - integração com API REST do Blog Pessoal
+- preparação para deploy com variável de ambiente
 
 ## Documentação das implementações
 
@@ -45,6 +48,7 @@ Documentos disponíveis:
 - [Etapas 13 a 19](C:/Users/kefil/OneDrive/Desktop/react/blogpessoal/Docs/implementacao-13-19.md)
 - [Etapas 20 a 25](C:/Users/kefil/OneDrive/Desktop/react/blogpessoal/Docs/implementacao-20-25.md)
 - [Etapas 26 a 31](C:/Users/kefil/OneDrive/Desktop/react/blogpessoal/Docs/implementacao-26-31.md)
+- [Etapas 32 a 35](C:/Users/kefil/OneDrive/Desktop/react/blogpessoal/Docs/implementacao-32-35.md)
 
 ## Como executar
 
@@ -55,6 +59,14 @@ npm install
 npm run dev
 ```
 
+## Deploy
+
+Para publicar na Vercel, configure a variável:
+
+```bash
+VITE_API_URL=https://blogpessoal-o04c.onrender.com
+```
+
 ## Autoria
 
-Projeto desenvolvido por Kefilwe Lourenço durante a formação Full Stack JavaScript da Generation Brasil.
+💜 Projeto desenvolvido por Kefilwe Lourenço durante a formação Full Stack JavaScript da Generation Brasil.

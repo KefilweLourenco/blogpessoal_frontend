@@ -21,7 +21,7 @@ function Footer() {
           </div>
         </div>
         <div className="bg-black py-2 text-center text-white">
-          <p>Feito com carinho por Kefilwe Lourenço</p>
+          <p>Feito por Kefilwe Lourenço</p>
         </div>
       </>
     );
