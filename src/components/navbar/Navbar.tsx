@@ -24,9 +24,6 @@ function Navbar() {
           </Link>
 
           <div className="flex flex-wrap justify-center gap-4 text-lg">
-            <Link to="/home" className="hover:underline">
-              Home
-            </Link>
             <Link to="/postagens" className="hover:underline">
               Postagens
             </Link>
