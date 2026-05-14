@@ -64,7 +64,7 @@ npm run dev
 Para publicar na Vercel, configure a variável:
 
 ```bash
-VITE_API_URL=https://blogpessoal-o04c.onrender.com
+VITE_API_URL=https://seu_link_aqui
 ```
 
 ## Autoria
