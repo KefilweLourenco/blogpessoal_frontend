@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
 import type Tema from "../../../models/Tema";
 import { buscar, deletar } from "../../../services/Service";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
 
 function DeletarTema() {
   const navigate = useNavigate();
@@ -13,21 +14,21 @@ function DeletarTema() {
   const { usuario } = useContext(AuthContext);
   const token = usuario.token;
 
-  async function buscarTemaPorId(id: string) {
+  async function buscarTemaPorId(idTema: string) {
     try {
-      await buscar(`/temas/${id}`, setTema, {
+      await buscar(`/temas/${idTema}`, setTema, {
         headers: {
           Authorization: token,
         },
       });
     } catch (error) {
-      alert("Erro ao buscar tema.");
+      ToastAlerta("Erro ao buscar tema.", "erro");
     }
   }
 
   useEffect(() => {
     if (token === "") {
-      alert("Você precisa estar logado");
+      ToastAlerta("Voce precisa estar logado", "info");
       navigate("/login");
     }
   }, [token, navigate]);
@@ -45,9 +46,9 @@ function DeletarTema() {
           Authorization: token,
         },
       });
-      alert("Tema apagado com sucesso");
+      ToastAlerta("Tema apagado com sucesso", "sucesso");
     } catch (error) {
-      alert("Erro ao apagar o tema.");
+      ToastAlerta("Erro ao apagar o tema.", "erro");
     }
 
     retornar();
@@ -66,7 +67,7 @@ function DeletarTema() {
 
         <div className="flex flex-col gap-4 p-8">
           <p className="text-center text-3xl font-semibold">
-            Você tem certeza de que deseja apagar o tema a seguir?
+            Voce tem certeza de que deseja apagar o tema a seguir?
           </p>
           <p className="text-center text-2xl">{tema.descricao}</p>
 
@@ -75,7 +76,7 @@ function DeletarTema() {
               className="w-1/2 rounded bg-slate-400 py-2 font-semibold text-white hover:bg-slate-700"
               onClick={retornar}
             >
-              Não
+              Nao
             </button>
             <button
               className="w-1/2 rounded bg-red-400 py-2 font-semibold text-white hover:bg-red-700"

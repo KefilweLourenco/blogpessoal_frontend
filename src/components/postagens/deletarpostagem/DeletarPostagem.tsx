@@ -4,6 +4,7 @@ import { AuthContext } from "../../../contexts/AuthContext";
 import type Postagem from "../../../models/Postagem";
 import { buscar, deletar } from "../../../services/Service";
 import { ClipLoader } from "react-spinners";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
 
 function DeletarPostagem() {
   const navigate = useNavigate();
@@ -16,9 +17,9 @@ function DeletarPostagem() {
   const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
 
-  async function buscarPorId(id: string) {
+  async function buscarPorId(idPostagem: string) {
     try {
-      await buscar(`/postagens/${id}`, setPostagem, {
+      await buscar(`/postagens/${idPostagem}`, setPostagem, {
         headers: {
           Authorization: token,
         },
@@ -32,10 +33,10 @@ function DeletarPostagem() {
 
   useEffect(() => {
     if (token === "") {
-      alert("Você precisa estar logado");
-      navigate("/");
+      ToastAlerta("Voce precisa estar logado", "info");
+      navigate("/login");
     }
-  }, [token]);
+  }, [token, navigate]);
 
   useEffect(() => {
     if (id !== undefined) {
@@ -53,12 +54,12 @@ function DeletarPostagem() {
         },
       });
 
-      alert("Postagem apagada com sucesso");
+      ToastAlerta("Postagem apagada com sucesso", "sucesso");
     } catch (error: any) {
       if (error.toString().includes("401")) {
         handleLogout();
       } else {
-        alert("Erro ao deletar a postagem.");
+        ToastAlerta("Erro ao deletar a postagem.", "erro");
       }
     }
 
@@ -71,29 +72,28 @@ function DeletarPostagem() {
   }
 
   return (
-    <div className="container w-1/3 mx-auto">
-      <h1 className="text-4xl text-center my-4">Deletar Postagem</h1>
+    <div className="container mx-auto w-full max-w-xl px-4 py-8">
+      <h1 className="my-4 text-center text-4xl">Deletar Postagem</h1>
 
-      <p className="text-center font-semibold mb-4">
-        Você tem certeza de que deseja apagar a postagem a seguir?
+      <p className="mb-4 text-center font-semibold">
+        Voce tem certeza de que deseja apagar a postagem a seguir?
       </p>
 
-      <div className="border flex flex-col rounded-2xl overflow-hidden justify-between">
-        <header className="py-2 px-6 bg-indigo-600 text-white font-bold text-2xl">Postagem</header>
+      <div className="flex flex-col justify-between overflow-hidden rounded-2xl border">
+        <header className="bg-indigo-600 px-6 py-2 text-2xl font-bold text-white">Postagem</header>
         <div className="p-4">
-          <p className="text-xl h-full">{postagem.titulo}</p>
+          <p className="h-full text-xl">{postagem.titulo}</p>
           <p>{postagem.texto}</p>
         </div>
         <div className="flex">
           <button
-            className="text-slate-100 bg-red-400 hover:bg-red-600 w-full py-2"
+            className="w-full bg-red-400 py-2 text-slate-100 hover:bg-red-600"
             onClick={retornar}
           >
-            Não
+            Nao
           </button>
           <button
-            className="w-full text-slate-100 bg-indigo-400 
-                        hover:bg-indigo-600 flex items-center justify-center"
+            className="flex w-full items-center justify-center bg-indigo-400 text-slate-100 hover:bg-indigo-600"
             onClick={deletarPostagem}
           >
             {isLoading ? <ClipLoader color="#ffffff" size={24} /> : <span>Sim</span>}

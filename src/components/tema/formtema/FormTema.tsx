@@ -4,6 +4,7 @@ import { ClipLoader } from "react-spinners";
 import { AuthContext } from "../../../contexts/AuthContext";
 import type Tema from "../../../models/Tema";
 import { atualizar, buscar, cadastrar } from "../../../services/Service";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
 
 function FormTema() {
   const navigate = useNavigate();
@@ -15,21 +16,21 @@ function FormTema() {
   const { usuario } = useContext(AuthContext);
   const token = usuario.token;
 
-  async function buscarTemaPorId(id: string) {
+  async function buscarTemaPorId(idTema: string) {
     try {
-      await buscar(`/temas/${id}`, setTema, {
+      await buscar(`/temas/${idTema}`, setTema, {
         headers: {
           Authorization: token,
         },
       });
     } catch (error) {
-      alert("Erro ao buscar tema.");
+      ToastAlerta("Erro ao buscar tema.", "erro");
     }
   }
 
   useEffect(() => {
     if (token === "") {
-      alert("Você precisa estar logado");
+      ToastAlerta("Voce precisa estar logado", "info");
       navigate("/login");
     }
   }, [token, navigate]);
@@ -62,9 +63,9 @@ function FormTema() {
             Authorization: token,
           },
         });
-        alert("Tema atualizado com sucesso");
+        ToastAlerta("Tema atualizado com sucesso", "sucesso");
       } catch (error) {
-        alert("Erro ao atualizar o tema.");
+        ToastAlerta("Erro ao atualizar o tema.", "erro");
       }
     } else {
       try {
@@ -73,9 +74,9 @@ function FormTema() {
             Authorization: token,
           },
         });
-        alert("Tema cadastrado com sucesso");
+        ToastAlerta("Tema cadastrado com sucesso", "sucesso");
       } catch (error) {
-        alert("Erro ao cadastrar o tema.");
+        ToastAlerta("Erro ao cadastrar o tema.", "erro");
       }
     }
 
@@ -93,7 +94,7 @@ function FormTema() {
         <form className="mt-8 flex flex-col gap-4" onSubmit={gerarNovoTema}>
           <div className="flex flex-col gap-2">
             <label htmlFor="descricao" className="text-lg font-semibold text-indigo-900">
-              Descrição do Tema
+              Descricao do Tema
             </label>
             <input
               type="text"

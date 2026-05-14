@@ -4,6 +4,7 @@ import { ClipLoader } from "react-spinners";
 import { AuthContext } from "../../../contexts/AuthContext";
 import type Tema from "../../../models/Tema";
 import { buscar } from "../../../services/Service";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
 import CardTema from "../cardtema/CardTema";
 
 function ListaTemas() {
@@ -23,7 +24,7 @@ function ListaTemas() {
         },
       });
     } catch (error) {
-      alert("Erro ao buscar os temas.");
+      ToastAlerta("Erro ao buscar os temas.", "erro");
     } finally {
       setIsLoading(false);
     }
@@ -31,7 +32,7 @@ function ListaTemas() {
 
   useEffect(() => {
     if (token === "") {
-      alert("Você precisa estar logado");
+      ToastAlerta("Voce precisa estar logado", "info");
       navigate("/login");
     }
   }, [token, navigate]);
